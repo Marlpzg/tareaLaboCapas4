@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlms:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" th:href="@{/style.css}">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/b20aef55a4.js" crossorigin="anonymous"></script>
+<title>Venta de producto</title>
+</head>
+<body>
+
+	<form th:action="@{/formProducto}" th:object="${producto}" method="post">
+	
+		<h1>Ingresar producto</h1>
+		<div class="form-content">
+			<label>Nombre del producto:</label><br>
+			<i class="fas fa-shopping-bag icon"></i>
+			<input type="text" th:field="${producto.nombre}"><br>
+			<span th:errors="${producto.nombre}" style="color:  #E81505;"></span><br>
+			
+			<label>Descripcion del producto:</label><br>
+			<i class="fas fa-pencil-alt icon"></i>
+			<input type="text" th:field="${producto.descripcion}"><br>
+			<span th:errors="${producto.descripcion}" style="color:  #E81505;"></span><br>
+			
+			<label>Precio del producto:</label><br>
+			<i class="fas fa-dollar-sign icon2"></i>
+			<input type="number" th:field="${producto.precio}"><br>
+			<span th:errors="${producto.precio}" style="color:  #E81505;"></span><br>
+			
+			<label>Fecha de vencimiento del producto:</label><br>
+			<i class="far fa-calendar-times icon"></i>
+			<input type="text" th:field="${producto.vencimiento}"><br>
+			<span th:errors="${producto.vencimiento}" style="color:  #E81505;"></span><br>
+		</div>
+		<input type="submit" value="Agregar producto">
+	</form>
+
+</body>
+</html>
